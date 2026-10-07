@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snake PC</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="game-wrapper">
+
+        <!-- TELA INICIAL -->
+
+        <section id="startScreen" class="screen active">
+
+            <h1>SNAKE PC</h1>
+
+            <div class="start-buttons">
+
+                <button id="recordsStartButton">
+                    RECORDS
+                </button>
+
+                <button id="startGameButton">
+                    INICIAR JOGO
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOME DO JOGADOR -->
+
+        <section id="playerScreen" class="screen">
+
+            <h2>NOVO JOGO</h2>
+
+            <label for="playerName">
+                Digite seu nome
+            </label>
+
+            <input
+                id="playerName"
+                type="text"
+                maxlength="20"
+                placeholder="Nome do jogador"
+                autocomplete="off"
+            >
+
+            <p id="playerError" class="error"></p>
+
+            <button id="continueNameButton">
+                CONTINUAR
+            </button>
+
+            <button
+                id="backFromPlayer"
+                class="back-button">
+                VOLTAR
+            </button>
+
+        </section>
+
+
+        <!-- DIFICULDADE -->
+
+        <section id="difficultyScreen" class="screen">
+
+            <h2>SELECIONE A DIFICULDADE</h2>
+
+            <div class="difficulty-list">
+
+                <button
+                    class="difficulty-option"
+                    data-difficulty="normal">
+
+                    <strong>NORMAL</strong>
+
+                    <span>
+                        Velocidade baixa e moedas normais.
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="difficulty-option"
+                    data-difficulty="hard">
+
+                    <strong>DIFÍCIL</strong>
+
+                    <span>
+                        Cobra mais rápida e mais dinheiro.
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="difficulty-option"
+                    data-difficulty="veryHard">
+
+                    <strong>MUITO DIFÍCIL</strong>
+
+                    <span>
+                        Cobra muito rápida e grandes recompensas.
+                    </span>
+
+                </button>
+
+            </div>
+
+            <button
+                id="backFromDifficulty"
+                class="back-button">
+
+                VOLTAR
+
+            </button>
+
+        </section>
+
+
+        <!-- JOGO -->
+
+        <section id="gameScreen" class="screen">
+
+            <div class="game-header">
+
+                <div>
+                    <span>Jogador</span>
+                    <strong id="gamePlayerName"></strong>
+                </div>
+
+                <div>
+                    <span>Dificuldade</span>
+                    <strong id="gameDifficulty"></strong>
+                </div>
+
+                <div>
+                    <span>Dinheiro</span>
+                    <strong>
+                        $<span id="money">0</span>
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Bônus</span>
+                    <strong id="multiplier">
+                        1x
+                    </strong>
+
+                    <small id="bonusTimer"></small>
+                </div>
+
+            </div>
+
+
+            <div class="game-area">
+
+                <canvas
+                    id="gameCanvas"
+                    width="500"
+                    height="500">
+                </canvas>
+
+
+                <aside class="parts-panel">
+
+                    <h3>COMPUTADOR</h3>
+
+                    <p>
+                        Colete dinheiro e compre todas as peças.
+                    </p>
+
+                    <div id="partsList"></div>
+
+                    <button id="finishRunButton">
+                        FINALIZAR PARTIDA
+                    </button>
+
+                </aside>
+
+            </div>
+
+
+            <p class="game-instruction">
+                A cobra começa parada. Use as setas para começar.
+            </p>
+
+        </section>
+
+
+        <!-- LOJA -->
+
+        <section id="shopScreen" class="screen">
+
+            <h2>LOJA</h2>
+
+            <div class="shop-money">
+
+                Dinheiro disponível:
+
+                <strong>
+                    $<span id="shopMoney">0</span>
+                </strong>
+
+            </div>
+
+
+            <div
+                id="shopParts"
+                class="shop-grid">
+            </div>
+
+
+            <button id="finishShopButton">
+                FINALIZAR COMPRA
+            </button>
+
+        </section>
+
+
+        <!-- GAME OVER -->
+
+        <section id="gameOverScreen" class="screen">
+
+            <h2 class="game-over-title">
+                GAME OVER
+            </h2>
+
+            <p id="gameOverMessage"></p>
+
+
+            <div class="final-stats">
+
+                <p>
+                    Jogador:
+                    <strong id="gameOverPlayer"></strong>
+                </p>
+
+                <p>
+                    Dificuldade:
+                    <strong id="gameOverDifficulty"></strong>
+                </p>
+
+                <p>
+                    Dinheiro:
+                    <strong>
+                        $<span id="gameOverMoney"></span>
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <button id="gameOverMenuButton">
+                VOLTAR AO MENU
+            </button>
+
+        </section>
+
+
+        <!-- RECORDS -->
+
+        <section id="recordsScreen" class="screen">
+
+            <h2>RECORDS</h2>
+
+            <div id="recordsList"></div>
+
+            <button
+                id="backFromRecords"
+                class="back-button">
+
+                VOLTAR
+
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
